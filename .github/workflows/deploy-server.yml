@@ -5,9 +5,6 @@ on:
     branches:
       - main
 
-env:
-  DIRECTORY_NAME: '/var/www/ignaty.uk/'
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,7 +20,7 @@ jobs:
           pass: ${{ secrets.SERVER_PASS }}
           run: |
             pwd
-            cd $DIRECTORY_NAME
+            cd /var/www/ignaty.uk/
             pwd
             rm -rf build && mkdir build && cd build
             pwd
