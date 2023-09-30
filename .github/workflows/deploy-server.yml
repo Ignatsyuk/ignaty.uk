@@ -1,0 +1,30 @@
+name: Deploying to server
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DIRECTORY_NAME: '/var/www/ignaty.uk/'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy project to server via SSH and build
+        uses: matheusvanzan/sshpass-action@v2
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          user: ${{ secrets.SERVER_USER }}
+          pass: ${{ secrets.SERVER_PASS }}
+          run: |
+            cd $DIRECTORY_NAME
+            rm -rf build && mkdir build && cd build
+            git clone https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.repository }}.git .
+            npm ci && npm run build
+            rm -rf ../html/*
+            mv -f dist/* ../html/

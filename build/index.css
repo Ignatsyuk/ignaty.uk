@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+:root {
+  --link-primary: #3085c3;
+  --link-hover: #d7eeff;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease;
+}
+
+lottie-player {
+  height: 120px;
+  width: auto;
+  margin: 0 auto;
+}
+
+h1,
+a {
+  user-select: none;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+li {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 4px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-primary);
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: var(--link-hover);
+}
