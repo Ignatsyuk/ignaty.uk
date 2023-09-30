@@ -22,8 +22,13 @@ jobs:
           user: ${{ secrets.SERVER_USER }}
           pass: ${{ secrets.SERVER_PASS }}
           run: |
+            pwd
             cd $DIRECTORY_NAME
+            pwd
             rm -rf build && mkdir build && cd build
+            pwd
             git clone https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git .
+            pwd
             rm -rf ../html/*
-            mv -f * ../html/
+            pwd
+            mv -f build/* ../html/
