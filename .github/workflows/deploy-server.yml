@@ -26,4 +26,4 @@ jobs:
             rm -rf build && mkdir build && cd build
             git clone https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git .
             rm -rf ../html/*
-            mv -f build/* ../html/
+            mv -f * ../html/
