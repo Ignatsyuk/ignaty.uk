@@ -19,13 +19,8 @@ jobs:
           user: ${{ secrets.SERVER_USER }}
           pass: ${{ secrets.SERVER_PASS }}
           run: |
-            pwd
             cd /var/www/ignaty.uk/
-            pwd
             rm -rf build && mkdir build && cd build
-            pwd
             git clone https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git .
-            pwd
             rm -rf ../html/*
-            pwd
             mv -f build/* ../html/
