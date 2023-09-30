@@ -25,6 +25,5 @@ jobs:
             cd $DIRECTORY_NAME
             rm -rf build && mkdir build && cd build
             git clone https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.repository }}.git .
-            npm ci && npm run build
             rm -rf ../html/*
-            mv -f dist/* ../html/
+            mv -f build/* ../html/
