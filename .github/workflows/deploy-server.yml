@@ -24,6 +24,6 @@ jobs:
           run: |
             cd $DIRECTORY_NAME
             rm -rf build && mkdir build && cd build
-            git clone https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.repository }}.git .
+            git clone https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git .
             rm -rf ../html/*
             mv -f build/* ../html/
